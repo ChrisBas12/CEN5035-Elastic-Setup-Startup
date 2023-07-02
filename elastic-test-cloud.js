@@ -8,7 +8,8 @@ var cloud_auth = {}
 
 // setup client_config for creating Client()
 cloud_id.id = process.env.elastic_cloud_id;
-cloud_auth.apiKey = process.env.elastic_api_token;
+cloud_auth.username = process.env.elastic_userid;
+cloud_auth.password = process.env.elastic_password;
 client_config.cloud = cloud_id;
 client_config.auth = cloud_auth;
 

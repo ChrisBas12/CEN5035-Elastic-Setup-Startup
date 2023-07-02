@@ -5,7 +5,8 @@
   "main": "server.js",
   "dependencies": {
     "@elastic/elasticsearch": "^8.8.1",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "esmain": "github:elastic/elasticsearch-js"
   },
   "scripts": {
     "test": "jest"

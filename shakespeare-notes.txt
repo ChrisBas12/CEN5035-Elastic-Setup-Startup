@@ -4,10 +4,11 @@ Importing Shakespeare Data
 curl -H "Content-Type: application/json" -XPUT 127.0.0.1:9200/shakespeare --data-binary @shakes-mapping.json
 
 # Index/import  data to Elasticsearch
-curl -H "Content-Type: application/json" -XPUT '127.0.0.1:9200/shakespeare/_bulk' --data-binary @shakespeare_8.0.json
+curl -H "Content-Type: application/json" -XPUT 'https://project-deployment.es.us-central1.gcp.cloud.es.io/shakespeare/_bulk' --data-binary @shakespeare_8.0.json
 
 # Try searching a phrase
-curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/shakespeare/_search?pretty' -d '
+curl -H "Content-Type: application/json"-H "Authorization: ApiKey TGtid0VZa0JpclJncXFkdzB6UW46YjlTQkVPY3dUZi0xM19pcUVGOUkwZw==" \  
+-XGET 'https://project-deployment.es.us-central1.gcp.cloud.es.io/shakespeare/_search?pretty' -d '
 {
     "query" : {
         "match_phrase" : {
@@ -17,10 +18,10 @@ curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/shakespeare/_sear
 }' 
 
 
-curl -H "Content-Type: application/json" -H "Authorization: ApiKey <API Key> \ 
--XPUT https://my-deployment-1ed11c.es.eastus2.azure.elastic-cloud.com/shakespeare --data-binary @shakes-mapping.json
+curl -H "Content-Type: application/json" -H "Authorization: ApiKey TGtid0VZa0JpclJncXFkdzB6UW46YjlTQkVPY3dUZi0xM19pcUVGOUkwZw==" \ 
+-XPUT https://project-deployment.es.us-central1.gcp.cloud.es.io/shakespeare --data-binary @shakes-mapping.json
 
 curl -H "Content-Type: application/json" -XPUT '127.0.0.1:9200/shakespeare/_bulk' --data-binary @shakespeare_8.0.json
 
-curl -H "Content-Type: application/json" -H "Authorization: ApiKey <API Key> \
--XPUT https://my-deployment-1ed11c.es.eastus2.azure.elastic-cloud.com/shakespeare/_bulk --data-binary @shakespeare_8.0.json
+curl -H "Content-Type: application/json" -H "Authorization: ApiKey TGtid0VZa0JpclJncXFkdzB6UW46YjlTQkVPY3dUZi0xM19pcUVGOUkwZw==" \
+-XPUT https://project-deployment.es.us-central1.gcp.cloud.es.io/shakespeare/_bulk --data-binary @shakespeare_8.0.json
